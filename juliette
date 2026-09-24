@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pour Juliette ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ffd6e7, #fff0f5);
+    color: #333;
+}
+
+.screen {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 25px;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity 0.5s ease;
+    z-index: 2;
+}
+
+.screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+h1 {
+    font-size: clamp(2rem, 7vw, 3rem);
+    margin: 0 0 20px;
+}
+
+p {
+    max-width: 700px;
+    font-size: clamp(1rem, 4vw, 1.2rem);
+    line-height: 1.5;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    max-width: 750px;
+}
+
+button {
+    margin: 8px;
+    padding: 14px 25px;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 1.05rem;
+    transition: transform 0.2s ease;
+}
+
+.mainBtn {
+    background: #ff4f8b;
+    color: white;
+}
+
+.altBtn {
+    background: #ff8fba;
+    color: white;
+}
+
+.noBtn {
+    background: white;
+    color: #333;
+}
+
+.heart {
+    position: fixed;
+    top: -60px;
+    color: #ff5b97;
+    animation: fall linear infinite;
+    z-index: 1;
+    pointer-events: none;
+    user-select: none;
+}
+
+@keyframes fall {
+    from {
+        transform: translateY(-80px) rotate(0deg);
+    }
+
+    to {
+        transform: translateY(110vh) rotate(360deg);
+    }
+}
+
+.movingNo {
+    z-index: 10;
+}
+</style>
+</head>
+
+<body>
+
+<div id="hearts"></div>
+
+
+<!-- PAGE 1 -->
+
+<div id="page1" class="screen">
+
+    <h1>Pour Juliette 🌹</h1>
+
+    <p>
+        De la part d'Ilyes ❤️
+    </p>
+
+    <button class="mainBtn" onclick="next(1,2)">
+        Ouvrir ✨
+    </button>
+
+</div>
+
+
+<!-- PAGE 2 -->
+
+<div id="page2" class="screen hidden">
+
+    <h1>Salut Juliette ❤️</h1>
+
+    <p>
+        J'aurais pu t'envoyer un simple message...
+        <br><br>
+        Mais je trouvais ça un peu trop ordinaire.
+        <br><br>
+        Alors j'ai créé cette page juste pour toi 🌹
+    </p>
+
+    <button class="mainBtn" onclick="next(2,3)">
+        Continuer 💕
+    </button>
+
+</div>
+
+
+<!-- PAGE 3 -->
+
+<div id="page3" class="screen hidden">
+
+    <h1>Petite question 👀</h1>
+
+    <p>
+        Est-ce que tu aimes recevoir des messages mignons ? 🥰
+    </p>
+
+    <div class="buttons">
+
+        <button class="mainBtn"
+        onclick="answer(3,4,'Est-ce que tu aimes recevoir des messages mignons ?','Oui beaucoup ❤️')">
+            Oui beaucoup ❤️
+        </button>
+
+        <button class="altBtn"
+        onclick="answer(3,4,'Est-ce que tu aimes recevoir des messages mignons ?','J’adore 🥰')">
+            J'adore 🥰
+        </button>
+
+        <button class="noBtn movingNo">
+            Non 🙈
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- PAGE 4 -->
+
+<div id="page4" class="screen hidden">
+
+    <h1>Alors... 💕</h1>
+
+    <p>
+        Est-ce que tu souris parfois quand tu vois mon prénom apparaître ? 👀
+    </p>
+
+    <div class="buttons">
+
+        <button class="mainBtn"
+        onclick="answer(4,5,'Est-ce que tu souris parfois quand tu vois mon prénom apparaître ?','Oui 😳❤️')">
+            Oui 😳❤️
+        </button>
+
+        <button class="altBtn"
+        onclick="answer(4,5,'Est-ce que tu souris parfois quand tu vois mon prénom apparaître ?','Peut-être 🙈')">
+            Peut-être 🙈
+        </button>
+
+        <button class="noBtn movingNo">
+            Non 😶
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- PAGE 5 -->
+
+<div id="page5" class="screen hidden">
+
+    <h1>Encore une... 🌹</h1>
+
+    <p>
+        Est-ce que tu aimes passer du temps avec moi ? ❤️
+    </p>
+
+    <div class="buttons">
+
+        <button class="mainBtn"
+        onclick="answer(5,6,'Est-ce que tu aimes passer du temps avec moi ?','Oui 🥰')">
+            Oui 🥰
+        </button>
+
+        <button class="altBtn"
+        onclick="answer(5,6,'Est-ce que tu aimes passer du temps avec moi ?','Beaucoup ❤️')">
+            Beaucoup ❤️
+        </button>
+
+        <button class="noBtn movingNo">
+            Non 🙈
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- PAGE 6 -->
+
+<div id="page6" class="screen hidden">
+
+    <h1>Hmm... 👀</h1>
+
+    <p>
+        Est-ce que tu penses parfois à moi quand on ne se parle pas ? 💭❤️
+    </p>
+
+    <div class="buttons">
+
+        <button class="mainBtn"
+        onclick="answer(6,7,'Est-ce que tu penses parfois à moi quand on ne se parle pas ?','Oui ❤️')">
+            Oui ❤️
+        </button>
+
+        <button class="altBtn"
+        onclick="answer(6,7,'Est-ce que tu penses parfois à moi quand on ne se parle pas ?','Un peu... 🙈')">
+            Un peu... 🙈
+        </button>
+
+        <button class="noBtn movingNo">
+            Jamais 😶
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- PAGE 7 -->
+
+<div id="page7" class="screen hidden">
+
+    <h1>Petite dernière... 🤭</h1>
+
+    <p>
+        Tu aimerais passer une journée rien qu'avec moi ? 🌸
+    </p>
+
+    <div class="buttons">
+
+        <button class="mainBtn"
+        onclick="answer(7,8,'Tu aimerais passer une journée rien qu’avec moi ?','Oui 🥰')">
+            Oui 🥰
+        </button>
+
+        <button class="altBtn"
+        onclick="answer(7,8,'Tu aimerais passer une journée rien qu’avec moi ?','Carrément ❤️')">
+            Carrément ❤️
+        </button>
+
+        <button class="noBtn movingNo">
+            Non 🙈
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- PAGE 8 -->
+
+<div id="page8" class="screen hidden">
+
+    <h1>Une dernière chose... 🥺</h1>
+
+    <p>
+        Tu penses qu'on pourrait être quelque chose
+        de plus que de simples amis ? ❤️
+    </p>
+
+    <div class="buttons">
+
+        <button class="mainBtn"
+        onclick="answer(8,9,'Tu penses qu’on pourrait être quelque chose de plus que de simples amis ?','Oui ❤️')">
+            Oui ❤️
+        </button>
+
+        <button class="altBtn"
+        onclick="answer(8,9,'Tu penses qu’on pourrait être quelque chose de plus que de simples amis ?','Peut-être 👀')">
+            Peut-être 👀
+        </button>
+
+        <button class="noBtn movingNo">
+            Non 🙈
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- PAGE 9 -->
+
+<div id="page9" class="screen hidden">
+
+    <h1>Juliette... ❤️</h1>
+
+    <p>
+        Toutes ces petites questions avaient un but...
+        <br><br>
+        Parce qu'il y a une question que j'ai vraiment
+        envie de te poser. 🌹
+    </p>
+
+    <button class="mainBtn" onclick="next(9,10)">
+        Voir la vraie question 💕
+    </button>
+
+</div>
+
+
+<!-- PAGE 10 -->
+
+<div id="page10" class="screen hidden">
+
+    <h1>Juliette ❤️</h1>
+
+    <p>
+        Je vais enfin te la poser...
+        <br><br>
+
+        <strong>
+            Est-ce que tu accepterais de sortir avec moi ? 🥺❤️
+        </strong>
+    </p>
+
+    <div class="buttons">
+
+        <button id="yesBtn" class="mainBtn">
+            Oui 💖
+        </button>
+
+        <button id="finalNo" class="noBtn movingNo">
+            Non 🙈
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- PAGE 11 -->
+
+<div id="page11" class="screen hidden">
+
+    <h1>💖 Vraiment ? 💖</h1>
+
+    <p>
+        Attends...
+        <br><br>
+        Je crois que je viens de sourire comme un idiot
+        devant mon écran 😭❤️
+    </p>
+
+    <button class="mainBtn" onclick="next(11,12)">
+        Continuer 🥺
+    </button>
+
+</div>
+
+
+<!-- PAGE 12 -->
+
+<div id="page12" class="screen hidden">
+
+    <h1>🌹 Alors maintenant...</h1>
+
+    <p>
+        Si on avait notre premier vrai rendez-vous,
+        tu préférerais quoi ? ❤️
+    </p>
+
+    <div class="buttons">
+
+        <button class="mainBtn"
+        onclick="answer(12,13,'Pour notre premier rendez-vous, tu préférerais quoi ?','🍿 Un film à deux')">
+            🍿 Un film à deux
+        </button>
+
+        <button class="altBtn"
+        onclick="answer(12,13,'Pour notre premier rendez-vous, tu préférerais quoi ?','🌅 Une balade')">
+            🌅 Une balade
+        </button>
+
+        <button class="altBtn"
+        onclick="answer(12,13,'Pour notre premier rendez-vous, tu préférerais quoi ?','🍕 Manger ensemble')">
+            🍕 Manger ensemble
+        </button>
+
+        <button class="altBtn"
+        onclick="answer(12,13,'Pour notre premier rendez-vous, tu préférerais quoi ?','🎮 Une soirée tranquille')">
+            🎮 Une soirée tranquille
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- PAGE 13 -->
+
+<div id="page13" class="screen hidden">
+
+    <h1>🥺 Dernière question...</h1>
+
+    <p>
+        Tu me laisserais te prendre dans mes bras
+        quand on se verra ? ❤️
+    </p>
+
+    <div class="buttons">
+
+        <button class="mainBtn"
+        onclick="answer(13,14,'Tu me laisserais te prendre dans mes bras quand on se verra ?','Oui 🫶')">
+            Oui 🫶
+        </button>
+
+        <button class="altBtn"
+        onclick="answer(13,14,'Tu me laisserais te prendre dans mes bras quand on se verra ?','Bien sûr 🥰')">
+            Bien sûr 🥰
+        </button>
+
+        <button class="noBtn movingNo">
+            Non 🙈
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- PAGE 14 -->
+
+<div id="page14" class="screen hidden">
+
+    <h1>💌 Promis...</h1>
+
+    <p>
+        Je ne te promets pas d'être parfait.
+        <br><br>
+
+        Mais je peux te promettre une chose :
+        <br><br>
+
+        Je ferai de mon mieux pour te faire sourire,
+        <br>
+        te faire rire,
+        <br>
+        et profiter de chaque moment avec toi. ❤️
+    </p>
+
+    <button class="mainBtn" onclick="next(14,15)">
+        Continuer 🌹
+    </button>
+
+</div>
+
+
+<!-- PAGE 15 -->
+
+<div id="page15" class="screen hidden">
+
+    <h1>✨ Et maintenant...</h1>
+
+    <p>
+        Plus besoin de questions.
+        <br><br>
+
+        Plus besoin de boutons.
+        <br><br>
+
+        Juste toi et moi. ❤️
+        <br><br>
+
+        J'ai vraiment envie de voir
+        où cette histoire peut nous mener. 🌹
+    </p>
+
+    <button class="mainBtn" onclick="next(15,16)">
+        ❤️ Fin
+    </button>
+
+</div>
+
+
+<!-- PAGE 16 -->
+
+<div id="page16" class="screen hidden">
+
+    <h1>💖 Juliette &amp; Ilyes 💖</h1>
+
+    <p>
+        Et voilà... ❤️
+        <br><br>
+
+        Si tu es arrivée jusqu'ici,
+        <br>
+        c'est que tu as dit oui. 🥺
+        <br><br>
+
+        Je ne sais pas encore ce que l'avenir
+        nous réserve...
+        <br><br>
+
+        Mais j'ai vraiment envie de le découvrir
+        avec toi. 🌹
+        <br><br>
+
+        Alors...
+        <br><br>
+
+        À partir de maintenant,
+        <br>
+        on écrit notre histoire ensemble. ❤️
+        <br><br>
+
+        ✨ Fin... ou plutôt le début. ✨
+    </p>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   GOOGLE SHEETS
+   ===================================================== */
+
+const GOOGLE_SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbyFRrDZkqEY22DqRXJEqJBTuk6XsZZDa0ERhW4Jdu1M4JuKr5HivUQSsdwsRrPMb6KxGg/exec";
+
+
+function saveAnswer(question, answerText) {
+
+    fetch(GOOGLE_SCRIPT_URL, {
+
+        method: "POST",
+
+        mode: "no-cors",
+
+        headers: {
+            "Content-Type": "text/plain;charset=utf-8"
+        },
+
+        body: JSON.stringify({
+            question: question,
+            answer: answerText
+        })
+
+    }).catch(function(error) {
+
+        console.log("Erreur d'envoi :", error);
+
+    });
+
+}
+
+
+function answer(current, nextPage, question, response) {
+
+    saveAnswer(question, response);
+
+    next(current, nextPage);
+
+}
+
+
+/* =====================================================
+   CHANGEMENT DE PAGE
+   ===================================================== */
+
+function next(a, b) {
+
+    const current =
+        document.getElementById("page" + a);
+
+    const target =
+        document.getElementById("page" + b);
+
+    if (current && target) {
+
+        current.classList.add("hidden");
+
+        target.classList.remove("hidden");
+
+    }
+
+}
+
+
+/* =====================================================
+   CŒURS
+   ===================================================== */
+
+for (let i = 0; i < 30; i++) {
+
+    const h = document.createElement("div");
+
+    h.className = "heart";
+
+    h.textContent = "❤️";
+
+    h.style.left =
+        Math.random() * 100 + "vw";
+
+    h.style.animationDuration =
+        (5 + Math.random() * 8) + "s";
+
+    h.style.animationDelay =
+        (-Math.random() * 10) + "s";
+
+    h.style.fontSize =
+        (15 + Math.random() * 25) + "px";
+
+    document
+        .getElementById("hearts")
+        .appendChild(h);
+}
+
+
+/* =====================================================
+   BOUTONS NON QUI S'ENFUIENT
+   ===================================================== */
+
+const movingButtons =
+    document.querySelectorAll(".movingNo");
+
+
+function moveButton(button) {
+
+    button.style.position = "fixed";
+
+    const maxX =
+        Math.max(10, window.innerWidth - button.offsetWidth - 10);
+
+    const maxY =
+        Math.max(10, window.innerHeight - button.offsetHeight - 10);
+
+    const x =
+        10 + Math.random() * Math.max(1, maxX - 10);
+
+    const y =
+        10 + Math.random() * Math.max(1, maxY - 10);
+
+    button.style.left = x + "px";
+
+    button.style.top = y + "px";
+
+}
+
+
+/* Ordinateur */
+
+movingButtons.forEach(function(button) {
+
+    button.addEventListener(
+        "mouseenter",
+        function() {
+            moveButton(button);
+        }
+    );
+
+    button.addEventListener(
+        "click",
+        function(event) {
+
+            event.preventDefault();
+
+            moveButton(button);
+
+        }
+    );
+
+});
+
+
+/* Téléphone */
+
+movingButtons.forEach(function(button) {
+
+    button.addEventListener(
+        "touchstart",
+        function(event) {
+
+            event.preventDefault();
+
+            moveButton(button);
+
+        },
+        { passive: false }
+    );
+
+});
+
+
+/* =====================================================
+   BOUTON OUI FINAL
+   ===================================================== */
+
+const yesBtn =
+    document.getElementById("yesBtn");
+
+
+yesBtn.addEventListener(
+    "click",
+    function() {
+
+        saveAnswer(
+            "Est-ce que tu accepterais de sortir avec moi ?",
+            "Oui 💖"
+        );
+
+        document
+            .getElementById("page10")
+            .classList.add("hidden");
+
+        document
+            .getElementById("page11")
+            .classList.remove("hidden");
+
+    }
+);
+
+</script>
+
+</body>
+</html>
